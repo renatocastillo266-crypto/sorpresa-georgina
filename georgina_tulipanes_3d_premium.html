@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Georgina 🌷💛</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(#fff7c7 0%,#fffde7 48%,#cfe9b7 100%);
+  color:#5d4037;
+}
+.scene{position:relative;width:100%;height:100vh;overflow:hidden;perspective:1100px}
+.sky-glow{
+  position:absolute;width:230px;height:230px;border-radius:50%;right:5%;top:3%;
+  background:radial-gradient(circle,#fff7a0 0,#ffd54f 42%,rgba(255,193,7,0) 70%);
+  opacity:.9;
+}
+.cloud{position:absolute;width:130px;height:38px;border-radius:50px;background:rgba(255,255,255,.7);top:15%;left:7%}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}
+.cloud:before{width:65px;height:65px;left:18px;top:-30px}
+.cloud:after{width:78px;height:78px;right:8px;top:-42px}
+.cloud.c2{left:auto;right:25%;top:25%;transform:scale(.65);opacity:.55}
+
+.titulo{
+  position:absolute;z-index:30;top:6%;left:50%;transform:translateX(-50%);
+  width:94%;text-align:center;color:#e7a900;
+  font-size:clamp(27px,6vw,42px);font-weight:800;
+  text-shadow:0 3px 0 white,0 0 18px rgba(255,193,7,.35)
+}
+.subtitulo{
+  position:absolute;z-index:30;top:15%;left:50%;transform:translateX(-50%);
+  width:90%;text-align:center;color:#795548;font-size:14px
+}
+.pradera{
+  position:absolute;left:-10%;bottom:-15%;width:120%;height:52%;
+  background:linear-gradient(#9bc967,#5c9d43 55%,#36733a);
+  border-radius:50% 50% 0 0/20% 20% 0 0;
+  box-shadow:0 -25px 50px rgba(55,100,35,.18)
+}
+
+.mountains{
+  position:absolute;z-index:1;bottom:30%;width:75%;height:24%;
+  background:linear-gradient(145deg,#a9b77b,#71855d);
+  clip-path:polygon(0 100%,16% 43%,28% 72%,44% 18%,59% 62%,76% 30%,100% 100%);
+  opacity:.34;filter:blur(.5px)
+}
+.m1{left:-5%;transform:scale(1.2)}
+.m2{right:-10%;bottom:27%;transform:scale(.9);opacity:.24}
+.mist{
+  position:absolute;z-index:2;left:-10%;bottom:27%;width:120%;height:18%;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.24),transparent);
+  filter:blur(10px)
+}
+.birds{
+  position:absolute;z-index:5;top:24%;left:15%;color:rgba(70,70,50,.38);
+  font-size:22px;letter-spacing:18px;transform:rotate(-5deg)
+}
+.grass-blades{
+  position:absolute;z-index:7;bottom:13%;left:0;width:100%;height:18%;
+  opacity:.35;
+  background:repeating-linear-gradient(75deg,transparent 0 16px,rgba(38,91,35,.55) 17px 19px,transparent 20px 34px);
+  clip-path:polygon(0 100%,0 75%,5% 100%,10% 68%,14% 100%,20% 72%,26% 100%,33% 65%,39% 100%,47% 70%,53% 100%,61% 66%,68% 100%,75% 70%,82% 100%,89% 67%,95% 100%,100% 72%,100% 100%)
+}
+.badge{
+  position:absolute;z-index:40;left:16px;bottom:16px;
+  padding:9px 13px;border-radius:999px;
+  background:rgba(255,255,255,.68);border:1px solid rgba(190,145,35,.22);
+  color:#725a25;font-size:12px;backdrop-filter:blur(7px);
+  box-shadow:0 5px 18px rgba(60,45,10,.08)
+}
+.flor-glow{
+  position:absolute;z-index:3;left:50%;top:42%;width:170px;height:170px;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(255,239,120,.22),transparent 68%);
+  pointer-events:none;animation:glow 3.5s ease-in-out infinite
+}
+.dew{
+  position:absolute;z-index:9;width:5px;height:5px;border-radius:50%;
+  background:#fff;box-shadow:0 0 6px rgba(255,255,255,.9);opacity:.75
+}
+.tulipan.selected .petal{
+  filter:brightness(1.08) saturate(1.08);
+  box-shadow:inset -7px -10px 12px rgba(130,78,0,.1),inset 5px 4px 8px rgba(255,255,255,.4),0 0 16px rgba(255,213,79,.65)
+}
+.firma{margin-top:10px;color:#8d641a;font-size:13px;font-style:italic}
+@keyframes glow{50%{transform:translate(-50%,-50%) scale(1.15);opacity:.7}}
+@media(max-width:600px){.badge{left:10px;bottom:65px}.birds{left:8%;font-size:17px}.mountains{bottom:31%}}
+
+.jardin{
+  position:absolute;z-index:10;left:50%;bottom:8%;
+  width:min(800px,100vw);height:60%;
+  transform:translateX(-50%) rotateX(7deg);
+  transform-style:preserve-3d
+}
+.tulipan{
+  position:absolute;width:120px;height:290px;
+  transform-style:preserve-3d;cursor:pointer;
+  animation:balance 4s ease-in-out infinite;
+  transition:filter .3s,transform .35s
+}
+.tulipan:hover{filter:drop-shadow(0 0 18px rgba(255,211,52,.75))}
+.t1{left:2%;bottom:0;transform:scale(.7) rotate(-7deg)}
+.t2{left:14%;bottom:7%;transform:scale(.9) rotate(-3deg);animation-delay:-.8s}
+.t3{left:31%;bottom:-2%;transform:scale(1.1);animation-delay:-1.6s}
+.t4{left:46%;bottom:11%;transform:scale(.72);animation-delay:-2.4s}
+.t5{right:27%;bottom:-1%;transform:scale(1.12);animation-delay:-.5s}
+.t6{right:13%;bottom:7%;transform:scale(.88) rotate(4deg);animation-delay:-1.4s}
+.t7{right:2%;bottom:0;transform:scale(.7) rotate(7deg);animation-delay:-2.2s}
+.t8{left:38%;bottom:22%;transform:scale(.53);opacity:.9;animation-delay:-3s}
+.t9{right:38%;bottom:23%;transform:scale(.5);opacity:.9;animation-delay:-3.7s}
+
+.flower-head{
+  position:absolute;left:50%;top:0;width:112px;height:112px;
+  transform:translateX(-50%) translateZ(30px);
+  transform-style:preserve-3d
+}
+.petal{
+  position:absolute;left:35px;top:21px;width:42px;height:78px;
+  border-radius:48% 48% 26% 26% / 64% 64% 35% 35%;
+  background:linear-gradient(145deg,#fff59d 0%,#ffe44d 30%,#ffc107 68%,#e6a000 100%);
+  border:1px solid rgba(194,133,0,.4);
+  box-shadow:inset -7px -10px 12px rgba(130,78,0,.12),inset 5px 4px 8px rgba(255,255,255,.28),0 7px 12px rgba(100,65,0,.17);
+  transform-origin:50% 92%;
+  transition:filter .25s
+}
+.p1{transform:rotate(-32deg) translateY(6px)}
+.p2{transform:rotate(-20deg) translateY(-3px)}
+.p3{transform:rotate(-8deg) translateY(-9px)}
+.p4{transform:rotate(8deg) translateY(-9px)}
+.p5{transform:rotate(20deg) translateY(-3px)}
+.p6{transform:rotate(32deg) translateY(6px)}
+.petal:after{
+  content:"";position:absolute;left:50%;top:9px;width:2px;height:48px;
+  transform:translateX(-50%);background:rgba(255,255,210,.38);border-radius:50%
+}
+.center{
+  position:absolute;z-index:8;left:36px;top:38px;width:40px;height:38px;
+  border-radius:50% 50% 45% 45%;
+  background:linear-gradient(180deg,rgba(255,255,205,.5),rgba(194,130,0,.24));
+  transform:translateZ(35px)
+}
+.stem{
+  position:absolute;left:50%;top:83px;width:12px;height:205px;
+  transform:translateX(-50%) translateZ(-5px);
+  background:linear-gradient(90deg,#24632b,#70be4e,#2f7e35);
+  border-radius:10px;box-shadow:3px 0 6px rgba(0,0,0,.16)
+}
+.leaf{
+  position:absolute;width:74px;height:34px;border-radius:100% 0 100% 0;
+  background:linear-gradient(135deg,#80cc58,#2e7d32);
+  box-shadow:inset -6px -5px 8px rgba(0,0,0,.13)
+}
+.leaf.l1{top:65px;left:-66px;transform:rotate(-20deg)}
+.leaf.l2{top:115px;left:5px;transform:scaleX(-1) rotate(-18deg)}
+.ground-shadow{
+  position:absolute;left:50%;bottom:0;width:125px;height:23px;
+  transform:translateX(-50%);border-radius:50%;
+  background:rgba(30,65,25,.3);filter:blur(6px)
+}
+
+.carta{
+  position:absolute;z-index:60;left:50%;top:50%;width:min(88%,410px);
+  padding:25px 23px;text-align:center;
+  background:rgba(255,255,255,.95);border:2px solid #e3b52a;border-radius:25px;
+  box-shadow:0 25px 75px rgba(55,40,10,.32);
+  backdrop-filter:blur(8px);
+  transform:translate(-50%,-45%) scale(.5);opacity:0;pointer-events:none
+}
+.carta.visible{animation:entrada .7s cubic-bezier(.2,1.35,.4,1) forwards;pointer-events:auto}
+.carta .icon{font-size:45px}
+.carta p{font-size:18px;line-height:1.55;margin:8px 0 0}
+.carta small{display:block;margin-top:12px;color:#9b6911}
+
+.abeja,.brillo,.petalo-cae{
+  position:absolute;z-index:45;pointer-events:none
+}
+.abeja{font-size:24px;animation:vuela 6s ease-in-out forwards}
+.brillo{
+  width:7px;height:7px;border-radius:50%;background:#fff8a8;
+  box-shadow:0 0 13px #ffd54f;animation:sube 4.5s linear forwards
+}
+.petalo-cae{font-size:18px;animation:cae 5s linear forwards}
+
+.controles{
+  position:absolute;z-index:70;right:14px;bottom:14px;
+  display:flex;gap:8px
+}
+button{
+  min-height:44px;border:1px solid rgba(150,110,20,.35);
+  background:rgba(255,255,255,.88);color:#6d531d;
+  border-radius:999px;padding:9px 14px;cursor:pointer;
+  backdrop-filter:blur(6px);font-size:12px
+}
+.hint{
+  position:absolute;z-index:30;bottom:4%;left:50%;
+  transform:translateX(-50%);color:white;font-size:13px;
+  text-shadow:0 2px 6px #29451f;white-space:nowrap
+}
+@keyframes balance{0%,100%{rotate:0deg}50%{rotate:2.2deg}}
+@keyframes entrada{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes vuela{0%{opacity:0;transform:translate(0,0)}12%{opacity:1}45%{transform:translate(90px,-70px) rotate(7deg)}75%{transform:translate(-40px,-150px) rotate(-5deg)}100%{opacity:0;transform:translate(70px,-280px)}}
+@keyframes sube{0%{opacity:0;transform:translateY(15px) scale(.5)}15%{opacity:1}100%{opacity:0;transform:translateY(-55vh) translateX(70px) scale(1.1)}}
+@keyframes cae{0%{opacity:1;transform:translateY(-10px) rotate(0)}100%{opacity:0;transform:translateY(55vh) translateX(90px) rotate(360deg)}}
+@media(max-width:600px){
+  .titulo{top:5%;font-size:29px}.subtitulo{top:13%}
+  .jardin{bottom:11%;height:55%;transform:translateX(-50%) scale(.76)}
+  .pradera{height:44%}.carta{padding:22px 18px}.carta p{font-size:16px}
+  .hint{bottom:3%;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+</style>
+</head>
+<body>
+<div class="scene" id="scene">
+  <div class="sky-glow"></div><div class="cloud"></div><div class="cloud c2"></div>
+  <div class="mountains m1"></div><div class="mountains m2"></div>
+  <div class="mist"></div>
+  <div class="birds">⌁  ︵  ⌁</div>
+  <div class="titulo" id="titulo">¡Para Georgina! 🌷💛</div>
+  <div class="subtitulo">Toca un tulipán... tengo una pequeña sorpresa para ti ✨</div>
+  <div class="pradera"></div>
+  <div class="grass-blades"></div>
+  <div class="jardin">
+    <!-- 9 tulipanes, cada uno interactivo -->
+    <div class="tulipan t1" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t2" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t3" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t4" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t5" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t6" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t7" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t8" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+    <div class="tulipan t9" onclick="sorpresa()"><div class="flower-head"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i><i class="petal p5"></i><i class="petal p6"></i><i class="center"></i></div><div class="stem"><i class="leaf l1"></i><i class="leaf l2"></i></div><div class="ground-shadow"></div></div>
+  </div>
+
+  <div class="hint">🌷 Toca los tulipanes y descubre la sorpresa 💛</div>
+  <div class="badge">✨ Un detalle para ti</div>
+
+  <div class="carta" id="carta">
+    <div class="icon">🌷💛</div>
+    <p>Georgina, me acordé de ti y quise dejarte este pequeño detalle. Espero que te guste y que te saque una sonrisita 😊</p>
+    <small>Un detalle sencillo, pero pensado especialmente para ti ✨</small>
+    <div class="firma">— Con cariño 💛</div>
+  </div>
+
+  <div class="controles">
+    <button id="musicaBtn" onclick="toggleMusica()">🔊 Flores Amarillas</button>
+    <button onclick="cerrarCarta()">✕ Cerrar</button>
+  </div>
+
+  <audio id="musica" loop preload="auto">
+    <source src="flores-amarillas.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+const musica=document.getElementById("musica");
+const carta=document.getElementById("carta");
+const scene=document.getElementById("scene");
+let activado=false;
+
+const glow=document.createElement("div");
+glow.className="flor-glow";
+scene.appendChild(glow);
+
+for(let i=0;i<26;i++){
+  const d=document.createElement("div");
+  d.className="dew";
+  d.style.left=(4+Math.random()*92)+"%";
+  d.style.bottom=(13+Math.random()*25)+"%";
+  d.style.opacity=(.35+Math.random()*.5);
+  scene.appendChild(d);
+}
+
+function sorpresa(){
+  const clicked = event && event.currentTarget;
+  if(clicked) {
+    document.querySelectorAll(".tulipan").forEach(t=>t.classList.remove("selected"));
+    clicked.classList.add("selected");
+  }
+  document.getElementById("titulo").textContent="Para Georgina 🌷💛";
+  carta.classList.add("visible");
+  musica.play().then(()=>document.getElementById("musicaBtn").textContent="🔊 Flores Amarillas").catch(()=>{});
+  crearEfectos();
+  activado=true;
+}
+function cerrarCarta(){carta.classList.remove("visible")}
+function toggleMusica(){
+  const b=document.getElementById("musicaBtn");
+  if(musica.paused){
+    musica.play().then(()=>b.textContent="🔊 Flores Amarillas").catch(()=>{});
+  }else{
+    musica.pause();b.textContent="🔇 Música pausada";
+  }
+}
+scene.addEventListener("pointermove",(e)=>{
+  if(window.matchMedia("(pointer:fine)").matches){
+    const x=(e.clientX/window.innerWidth-.5)*2;
+    const y=(e.clientY/window.innerHeight-.5)*2;
+    document.querySelector(".jardin").style.transform=`translateX(-50%) rotateX(${7-y*2}deg) rotateY(${x*2}deg)`;
+    document.querySelector(".titulo").style.transform=`translateX(-50%) translate(${x*5}px,${y*3}px)`;
+  }
+});
+
+function crearEfectos(){
+  for(let i=0;i<28;i++){
+    const p=document.createElement("div");
+    p.className="brillo";
+    p.style.left=(10+Math.random()*80)+"%";
+    p.style.top=(45+Math.random()*40)+"%";
+    p.style.animationDelay=(Math.random()*1.5)+"s";
+    p.style.animationDuration=(3+Math.random()*2.5)+"s";
+    scene.appendChild(p);setTimeout(()=>p.remove(),6000);
+  }
+  for(let i=0;i<9;i++){
+    const b=document.createElement("div");
+    b.className="abeja";b.textContent="🐝";
+    b.style.left=(12+Math.random()*76)+"%";
+    b.style.top=(48+Math.random()*25)+"%";
+    b.style.animationDelay=(Math.random()*1.5)+"s";
+    scene.appendChild(b);setTimeout(()=>b.remove(),7000);
+  }
+  for(let i=0;i<5;i++){
+    const f=document.createElement("div");
+    f.className="abeja";f.textContent="🦋";
+    f.style.left=(10+Math.random()*80)+"%";
+    f.style.top=(42+Math.random()*30)+"%";
+    f.style.animationDelay=(Math.random()*2)+"s";
+    f.style.fontSize="22px";
+    scene.appendChild(f);setTimeout(()=>f.remove(),7000);
+  }
+  for(let i=0;i<12;i++){
+    const p=document.createElement("div");
+    p.className="petalo-cae";p.textContent="🌷";
+    p.style.left=(12+Math.random()*76)+"%";
+    p.style.top=(32+Math.random()*20)+"%";
+    p.style.animationDelay=(Math.random()*1.2)+"s";
+    scene.appendChild(p);setTimeout(()=>p.remove(),6000);
+  }
+}
+</script>
+</body>
+</html>
