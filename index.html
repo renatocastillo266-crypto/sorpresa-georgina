@@ -113,34 +113,45 @@ body{
 .t9{right:38%;bottom:23%;transform:scale(.5);opacity:.9;animation-delay:-3.7s}
 
 .flower-head{
-  position:absolute;left:50%;top:0;width:112px;height:112px;
+  position:absolute;left:50%;top:0;width:118px;height:118px;
   transform:translateX(-50%) translateZ(30px);
-  transform-style:preserve-3d
+  transform-style:preserve-3d;
+  filter:drop-shadow(0 9px 10px rgba(80,55,10,.16));
 }
 .petal{
-  position:absolute;left:35px;top:21px;width:42px;height:78px;
-  border-radius:48% 48% 26% 26% / 64% 64% 35% 35%;
-  background:linear-gradient(145deg,#fff59d 0%,#ffe44d 30%,#ffc107 68%,#e6a000 100%);
-  border:1px solid rgba(194,133,0,.4);
-  box-shadow:inset -7px -10px 12px rgba(130,78,0,.12),inset 5px 4px 8px rgba(255,255,255,.28),0 7px 12px rgba(100,65,0,.17);
+  position:absolute;left:35px;top:20px;width:45px;height:82px;
+  border-radius:52% 52% 42% 42% / 72% 72% 32% 32%;
+  background:
+    radial-gradient(ellipse at 35% 18%,rgba(255,255,255,.72) 0 7%,transparent 24%),
+    linear-gradient(145deg,#fff9b0 0%,#ffe95a 28%,#ffc928 62%,#e6a000 100%);
+  border:1px solid rgba(190,125,0,.42);
+  box-shadow:
+    inset -8px -12px 13px rgba(120,70,0,.13),
+    inset 6px 4px 10px rgba(255,255,255,.34),
+    0 7px 12px rgba(100,65,0,.15);
   transform-origin:50% 92%;
-  transition:filter .25s
+  transition:filter .25s;
+  overflow:hidden
 }
-.p1{transform:rotate(-32deg) translateY(6px)}
-.p2{transform:rotate(-20deg) translateY(-3px)}
-.p3{transform:rotate(-8deg) translateY(-9px)}
-.p4{transform:rotate(8deg) translateY(-9px)}
-.p5{transform:rotate(20deg) translateY(-3px)}
-.p6{transform:rotate(32deg) translateY(6px)}
+.p1{transform:rotate(-34deg) translateY(7px) translateZ(2px)}
+.p2{transform:rotate(-22deg) translateY(-2px) translateZ(8px)}
+.p3{transform:rotate(-9deg) translateY(-9px) translateZ(12px)}
+.p4{transform:rotate(9deg) translateY(-9px) translateZ(12px)}
+.p5{transform:rotate(22deg) translateY(-2px) translateZ(8px)}
+.p6{transform:rotate(34deg) translateY(7px) translateZ(2px)}
 .petal:after{
-  content:"";position:absolute;left:50%;top:9px;width:2px;height:48px;
-  transform:translateX(-50%);background:rgba(255,255,210,.38);border-radius:50%
+  content:"";position:absolute;left:50%;top:8px;width:3px;height:58px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,rgba(255,255,235,.48),rgba(255,255,255,0));
+  border-radius:50%;opacity:.75
 }
 .center{
-  position:absolute;z-index:8;left:36px;top:38px;width:40px;height:38px;
-  border-radius:50% 50% 45% 45%;
-  background:linear-gradient(180deg,rgba(255,255,205,.5),rgba(194,130,0,.24));
-  transform:translateZ(35px)
+  position:absolute;z-index:9;left:39px;top:48px;width:40px;height:27px;
+  border-radius:48% 48% 58% 58%;
+  background:radial-gradient(ellipse at 50% 25%,rgba(255,255,220,.75),rgba(196,132,0,.32) 62%,rgba(120,75,0,.18));
+  box-shadow:inset 0 3px 6px rgba(255,255,255,.3);
+  transform:translateZ(38px);
+  opacity:.9
 }
 .stem{
   position:absolute;left:50%;top:83px;width:12px;height:205px;
@@ -164,9 +175,14 @@ body{
 .carta{
   position:absolute;z-index:60;left:50%;top:50%;width:min(88%,410px);
   padding:25px 23px;text-align:center;
-  background:rgba(255,255,255,.95);border:2px solid #e3b52a;border-radius:25px;
-  box-shadow:0 25px 75px rgba(55,40,10,.32);
-  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.58);
+  border-radius:25px;
+  box-shadow:
+    0 25px 75px rgba(55,40,10,.20),
+    inset 0 0 28px rgba(255,255,255,.13);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
   transform:translate(-50%,-45%) scale(.5);opacity:0;pointer-events:none
 }
 .carta.visible{animation:entrada .7s cubic-bezier(.2,1.35,.4,1) forwards;pointer-events:auto}
